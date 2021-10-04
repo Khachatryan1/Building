@@ -1,0 +1,47 @@
+#include <iostream>
+struct Height{
+    double building_height;
+    double door_height;
+    double ceiling_height;
+};
+class Build_plan{
+    Height init={900.50,100.90,200.50};
+    double width;
+    double length;
+    int number_of_floors;
+public:
+    void get_height(){
+        std::cout<<"Building height--->"<<init.building_height<<"\n";
+        std::cout<<"Door height------->"<<init.door_height<<"\n";
+        std::cout<<"Ceiling height---->"<<init.ceiling_height<<"\n";
+    }
+    void get_value(double a,double b,int c){
+        this->width=a;
+        this->length=b;
+        this->number_of_floors=c;
+        std::cout<<"Width------------->"<<a<<"\n"<<"Length------------>"<<b<<"\n"<<"Number of floors-->"<<c<<"\n";
+    }
+};
+class Building:public Build_plan{
+    std::string color;
+    std::string address;
+public:
+    Building(){
+        color="black";
+        address="Gyumri";
+    }
+    void print(){
+        get_height();
+        get_value(40.5,30.3,4);
+        std::cout<<"Color------------->"<<color<<"\n"<<"Address----------->"<<address<<"\n";
+    }
+
+    ~Building(){
+        std::cout<<"I am a destructor"<<"\n";
+    }
+};
+int main(){
+    Building p;
+    p.print();
+    return 0;
+}
